@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Download, ArrowDown, Star, Award, MapPin, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks/use-toast';
+import SkillsSection from '@/components/SkillsSection';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -16,14 +16,6 @@ const Index = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-  const skills = [
-    { category: 'Languages', items: ['Python', 'Java', 'Kotlin', 'JavaScript', 'TypeScript'] },
-    { category: 'Frontend', items: ['React.js', 'Next.js', 'Tailwind CSS'] },
-    { category: 'Backend', items: ['Flask', 'Firebase', 'MongoDB', 'Prisma ORM'] },
-    { category: 'AI/ML', items: ['Gemini AI', 'scikit-learn', 'NumPy'] },
-    { category: 'DevTools', items: ['GitHub', 'Docker', 'n8n', 'Android Studio'] }
-  ];
 
   const projects = [
     {
@@ -183,32 +175,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="py-20 bg-slate-900/50">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            Skills & Technologies
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skills.map((skillGroup, index) => (
-              <Card key={skillGroup.category} className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover:border-blue-500/50 transition-all duration-300 transform hover:scale-105">
-                <CardHeader>
-                  <CardTitle className="text-blue-400">{skillGroup.category}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {skillGroup.items.map((skill) => (
-                      <Badge key={skill} variant="secondary" className="bg-blue-500/20 text-blue-300 hover:bg-blue-500/30">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Skills Section - Now using the new SkillsSection component */}
+      <SkillsSection />
 
       {/* Projects Section */}
       <section id="projects" className="py-20">
