@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Download, ArrowDown, Star, Award, MapPin, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -136,13 +135,6 @@ const Index = () => {
             <p className="text-lg mb-12 text-slate-400 max-w-2xl mx-auto">
               Let's build the future together
             </p>
-            <Button 
-              onClick={() => scrollToSection('projects')}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white px-8 py-4 text-lg rounded-xl transition-all duration-300 transform hover:scale-105"
-            >
-              Explore My Work
-              <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
-            </Button>
           </div>
         </div>
       </section>
