@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Download, ArrowDown, Star, Award, MapPin, Calendar } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, ArrowDown, Star, Award, MapPin, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -160,23 +159,17 @@ const Index = () => {
                 strong leadership in tech communities, and a deep passion for creating impactful, intelligent, 
                 and user-focused applications.
               </p>
-              <div className="flex flex-wrap gap-4 animate-delayed-fade-in">
-                <Button variant="outline" className="border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white hover-scale">
-                  <Download className="h-4 w-4 mr-2" />
-                  Download Resume
-                </Button>
-                <div className="flex space-x-4">
-                  <a href="https://linkedin.com/in/aravind2107" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" size="icon" className="border-slate-600 hover:border-blue-500 hover-scale">
-                      <Linkedin className="h-4 w-4" />
-                    </Button>
-                  </a>
-                  <a href="https://github.com/ARAVIND2017" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" size="icon" className="border-slate-600 hover:border-blue-500 hover-scale">
-                      <Github className="h-4 w-4" />
-                    </Button>
-                  </a>
-                </div>
+              <div className="flex space-x-4 animate-delayed-fade-in">
+                <a href="https://linkedin.com/in/aravind2107" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="border-slate-600 hover:border-blue-500 hover-scale">
+                    <Linkedin className="h-4 w-4" />
+                  </Button>
+                </a>
+                <a href="https://github.com/ARAVIND2017" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="border-slate-600 hover:border-blue-500 hover-scale">
+                    <Github className="h-4 w-4" />
+                  </Button>
+                </a>
               </div>
             </CardContent>
           </Card>
