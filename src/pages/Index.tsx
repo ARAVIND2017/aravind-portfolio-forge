@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ArrowDown, Star, Award, MapPin, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -138,7 +139,9 @@ const Index = () => {
           
           {/* 3D Interactive Scene */}
           <div className="max-w-6xl mx-auto animate-slide-in-right">
-            <SplineSceneBasic />
+            <div style={{ background: 'transparent' }}>
+              <SplineSceneBasic />
+            </div>
           </div>
         </div>
       </section>
