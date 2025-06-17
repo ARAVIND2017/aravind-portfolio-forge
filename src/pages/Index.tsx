@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks/use-toast';
 import SkillsSection from '@/components/SkillsSection';
+import { SplineSceneBasic } from '@/components/ui/demo';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -109,12 +110,12 @@ const Index = () => {
         </nav>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section with SplineSceneBasic */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 animate-pulse"></div>
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="mb-8">
+        <div className="container mx-auto px-6 relative z-10">
+          <div className={`transition-all duration-1000 mb-12 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="text-center mb-8">
               <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-500 to-purple-600 shadow-2xl">
                 <img 
                   src="/lovable-uploads/22c6e9db-a4c4-4ef5-ab8c-49fc46b54eb2.png" 
@@ -122,16 +123,21 @@ const Index = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-600 bg-clip-text text-transparent">
+                Hi, I'm B. Aravind
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 text-slate-300 max-w-4xl mx-auto leading-relaxed">
+                AI/ML Enthusiast | Full Stack Developer | App Builder | Hackathon Winner
+              </p>
+              <p className="text-lg mb-12 text-slate-400 max-w-2xl mx-auto">
+                Let's build the future together
+              </p>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-600 bg-clip-text text-transparent">
-              Hi, I'm B. Aravind
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              AI/ML Enthusiast | Full Stack Developer | App Builder | Hackathon Winner
-            </p>
-            <p className="text-lg mb-12 text-slate-400 max-w-2xl mx-auto">
-              Let's build the future together
-            </p>
+          </div>
+          
+          {/* 3D Interactive Scene */}
+          <div className="max-w-6xl mx-auto">
+            <SplineSceneBasic />
           </div>
         </div>
       </section>
