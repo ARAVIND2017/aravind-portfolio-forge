@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ArrowDown, Star, Award, MapPin, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -111,19 +112,18 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white overflow-x-hidden">
       {/* Sticky Header */}
-      <header className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-700/50 animate-slide-up">
+      <header className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-700/50">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-glow">
-              Aravind
+            <div className="text-2xl font-bold text-white">
+              B. Aravind
             </div>
             <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item, index) => (
+              {['Home', 'About', 'Skills', 'Projects', 'Achievements', 'Experience', 'Certifications', 'Contact'].map((item, index) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`hover:text-blue-400 transition-all duration-300 relative group animate-fade-in hover-scale ${activeSection === item.toLowerCase() ? 'text-blue-400' : ''}`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className={`hover:text-blue-400 transition-all duration-300 relative group ${activeSection === item.toLowerCase() ? 'text-blue-400' : ''}`}
                 >
                   {item}
                   <span className={`absolute -bottom-1 left-0 h-0.5 bg-blue-400 transition-all duration-300 ${activeSection === item.toLowerCase() ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
@@ -136,31 +136,30 @@ const Index = () => {
 
       {/* Hero Section with SplineSceneBasic */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 animate-pulse"></div>
         <div className="container mx-auto px-6 relative z-10">
           <div className={`transition-all duration-1000 mb-12 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="text-center mb-8">
-              <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-500 to-purple-600 shadow-2xl animate-float">
+              <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-500 to-purple-600 shadow-2xl">
                 <img 
                   src="/lovable-uploads/22c6e9db-a4c4-4ef5-ab8c-49fc46b54eb2.png" 
                   alt="B. Aravind" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-600 bg-clip-text text-transparent animate-scale-in">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-600 bg-clip-text text-transparent">
                 Hi, I'm B. Aravind
               </h1>
-              <p className="text-xl md:text-2xl mb-8 text-slate-300 max-w-4xl mx-auto leading-relaxed animate-delayed-fade-in">
+              <p className="text-xl md:text-2xl mb-8 text-slate-300 max-w-4xl mx-auto leading-relaxed">
                 AI/ML Enthusiast | Full Stack Developer | App Builder | Hackathon Winner
               </p>
-              <p className="text-lg mb-12 text-slate-400 max-w-2xl mx-auto animate-slide-in-left">
+              <p className="text-lg mb-12 text-slate-400 max-w-2xl mx-auto">
                 Let's build the future together
               </p>
             </div>
           </div>
           
           {/* 3D Interactive Scene */}
-          <div className="max-w-6xl mx-auto animate-slide-in-right">
+          <div className="max-w-6xl mx-auto">
             <div style={{ background: 'transparent' }}>
               <SplineSceneBasic />
             </div>
@@ -174,19 +173,19 @@ const Index = () => {
       {/* Projects Section */}
       <section id="projects" className="py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-fade-in">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Featured Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card key={project.title} className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover:border-blue-500/50 transition-all duration-300 transform hover-scale group animate-stagger-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card key={project.title} className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover:border-blue-500/50 transition-all duration-300 transform hover-scale group">
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
                     <CardTitle className="text-white group-hover:text-blue-400 transition-colors">
                       {project.title}
                     </CardTitle>
                     {project.award && (
-                      <Badge className="bg-yellow-500/20 text-yellow-300 text-xs animate-glow">
+                      <Badge className="bg-yellow-500/20 text-yellow-300 text-xs">
                         <Award className="h-3 w-3 mr-1" />
                         Winner
                       </Badge>
@@ -198,14 +197,14 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, techIndex) => (
-                      <Badge key={tech} variant="outline" className="border-blue-500/30 text-blue-300 hover-scale" style={{ animationDelay: `${techIndex * 0.05}s` }}>
+                    {project.tech.map((tech) => (
+                      <Badge key={tech} variant="outline" className="border-blue-500/30 text-blue-300 hover-scale">
                         {tech}
                       </Badge>
                     ))}
                   </div>
                   {project.award && (
-                    <p className="text-yellow-400 text-sm mb-4 font-medium animate-float">{project.award}</p>
+                    <p className="text-yellow-400 text-sm mb-4 font-medium">{project.award}</p>
                   )}
                   <div className="flex space-x-3">
                     <Button size="sm" variant="outline" className="border-slate-600 hover:border-blue-500 hover-scale">
@@ -221,16 +220,16 @@ const Index = () => {
       </section>
 
       {/* Achievements Section */}
-      <section className="py-20 bg-slate-900/50">
+      <section id="achievements" className="py-20 bg-slate-900/50">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-fade-in">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Achievements
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {achievements.map((achievement, index) => (
-              <Card key={achievement.title} className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover:border-yellow-500/50 transition-all duration-300 transform hover-scale text-center animate-scale-in" style={{ animationDelay: `${index * 0.2}s` }}>
+              <Card key={achievement.title} className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover:border-yellow-500/50 transition-all duration-300 transform hover-scale text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl mb-4 animate-float" style={{ animationDelay: `${index * 0.5}s` }}>{achievement.icon}</div>
+                  <div className="text-4xl mb-4">{achievement.icon}</div>
                   <h3 className="text-xl font-bold text-white mb-2">{achievement.title}</h3>
                   <p className="text-yellow-400 font-medium mb-2">{achievement.award}</p>
                   <p className="text-slate-400">{achievement.year}</p>
@@ -242,24 +241,24 @@ const Index = () => {
       </section>
 
       {/* Experience & Certifications */}
-      <section className="py-20">
+      <section id="experience" className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Experience */}
-            <div className="animate-slide-in-left">
+            <div>
               <h3 className="text-3xl font-bold mb-8 text-blue-400">Experience</h3>
               <div className="space-y-6">
-                <Card className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover-scale animate-fade-in">
+                <Card className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover-scale">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-3">
                       <h4 className="text-xl font-bold text-white">Technical Head</h4>
-                      <Badge className="bg-green-500/20 text-green-300 animate-glow">Current</Badge>
+                      <Badge className="bg-green-500/20 text-green-300">Current</Badge>
                     </div>
                     <p className="text-blue-400 mb-2">Kriya Tech Club, BITM</p>
                     <p className="text-slate-300 text-sm mb-3">Led coding events, mentored juniors, organized workshops</p>
                   </CardContent>
                 </Card>
-                <Card className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover-scale animate-delayed-fade-in">
+                <Card className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover-scale">
                   <CardContent className="p-6">
                     <h4 className="text-xl font-bold text-white mb-3">Project Diploma Engineer Trainee</h4>
                     <p className="text-blue-400 mb-2">Triveni Turbine Ltd</p>
@@ -270,15 +269,15 @@ const Index = () => {
             </div>
 
             {/* Certifications */}
-            <div className="animate-slide-in-right">
+            <div id="certifications">
               <h3 className="text-3xl font-bold mb-8 text-blue-400">Certifications</h3>
               <div className="space-y-4">
                 {certifications.map((cert, index) => (
-                  <Card key={cert} className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover:border-blue-500/50 transition-all duration-300 cursor-pointer hover-scale animate-stagger-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <Card key={cert} className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover:border-blue-500/50 transition-all duration-300 cursor-pointer hover-scale">
                     <CardContent className="p-4">
                       <div className="flex items-center justify-between">
                         <p className="text-white">{cert}</p>
-                        <ExternalLink className="h-4 w-4 text-blue-400 animate-float" />
+                        <ExternalLink className="h-4 w-4 text-blue-400" />
                       </div>
                     </CardContent>
                   </Card>
@@ -292,14 +291,14 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-slate-900/50">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-fade-in">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Let's Connect
           </h2>
           <div className="max-w-2xl mx-auto">
-            <Card className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover-scale animate-scale-in">
+            <Card className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover-scale">
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="animate-slide-up">
+                  <div>
                     <Input
                       placeholder="Your Name"
                       value={formData.name}
@@ -309,7 +308,7 @@ const Index = () => {
                       disabled={isSubmitting}
                     />
                   </div>
-                  <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
+                  <div>
                     <Input
                       type="email"
                       placeholder="Your Email"
@@ -320,7 +319,7 @@ const Index = () => {
                       disabled={isSubmitting}
                     />
                   </div>
-                  <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                  <div>
                     <Textarea
                       placeholder="Your Message"
                       value={formData.message}
@@ -332,7 +331,7 @@ const Index = () => {
                   </div>
                   <Button 
                     type="submit" 
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white py-3 hover-scale animate-glow"
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white py-3 hover-scale"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
@@ -340,7 +339,7 @@ const Index = () => {
                   </Button>
                 </form>
                 
-                <div className="mt-8 pt-8 border-t border-slate-700 animate-delayed-fade-in">
+                <div className="mt-8 pt-8 border-t border-slate-700">
                   <div className="flex justify-center space-x-6">
                     <a href="mailto:baravind196@gmail.com" className="flex items-center text-slate-300 hover:text-blue-400 transition-colors hover-scale story-link">
                       <Mail className="h-5 w-5 mr-2" />
@@ -363,12 +362,12 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-950 py-8 border-t border-slate-800 animate-slide-up">
+      <footer className="bg-slate-950 py-8 border-t border-slate-800">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-slate-400 mb-4 animate-fade-in">
+          <p className="text-slate-400 mb-4">
             Built by Aravind using 💻 React & Tailwind CSS
           </p>
-          <p className="text-slate-500 text-sm animate-delayed-fade-in">
+          <p className="text-slate-500 text-sm">
             © 2024 B. Aravind. All rights reserved.
           </p>
         </div>
