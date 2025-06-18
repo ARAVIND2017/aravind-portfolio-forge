@@ -1,19 +1,13 @@
-
-'use client'
+'use client';
 
 import { SplineScene } from "@/components/ui/splite";
-import { Card } from "@/components/ui/card"
-import { Spotlight } from "@/components/ui/spotlight"
+import { Card } from "@/components/ui/card";
+import { Spotlight } from "@/components/ui/spotlight";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
- 
 export function SplineSceneBasic() {
-  return (
-    <Card className="w-full h-auto min-h-[500px] bg-black/[0.96] relative overflow-hidden" id="about">
-      <Spotlight
-        className="-top-40 left-0 md:left-60 md:-top-20"
-        fill="white"
-      />
+  return <Card className="w-full h-auto min-h-[500px] bg-black/[0.96] relative overflow-hidden" id="about">
+      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
       
       <div className="flex flex-col md:flex-row h-full">
         {/* Left content */}
@@ -21,14 +15,7 @@ export function SplineSceneBasic() {
           <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 mb-6">
             About Me
           </h1>
-          <p className="text-slate-300 leading-relaxed mb-8">
-            I'm an AI & ML Engineering student with hands-on experience in full stack and app development, 
-            skilled in Python, Flask, React, Next.js, Firebase, MongoDB, Gemini AI, and Docker. I've built 
-            real-world AI-powered solutions such as mock interview platforms, civic engagement tools, cloud 
-            estimators, and automation bots using n8n, with multiple national and international hackathon wins, 
-            strong leadership in tech communities, and a deep passion for creating impactful, intelligent, 
-            and user-focused applications.
-          </p>
+          <p className="text-slate-300 leading-relaxed mb-8">I'm an AI &amp; ML engineering student with hands-on experience in developing intelligent, user-focused solutions across web, mobile, and AI platforms. I combine strong full stack and UI/UX skills with a self-motivated mindset and have built real-world projects recognized in national and international hackathons. I'm passionate about creating scalable tech that solves meaningful problems.</p>
           <div className="flex space-x-4 animate-delayed-fade-in">
             <a href="https://linkedin.com/in/aravind2107" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="icon" className="border-slate-600 hover:border-blue-500 hover-scale">
@@ -50,12 +37,8 @@ export function SplineSceneBasic() {
 
         {/* Right content */}
         <div className="flex-1 relative min-h-[300px]">
-          <SplineScene 
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            className="w-full h-full"
-          />
+          <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
         </div>
       </div>
-    </Card>
-  )
+    </Card>;
 }
