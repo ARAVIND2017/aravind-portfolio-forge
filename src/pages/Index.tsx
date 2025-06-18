@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ArrowDown, Star, Award, MapPin, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -123,11 +122,11 @@ const Index = () => {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className="hover:text-blue-400 transition-all duration-300 relative group animate-fade-in hover-scale"
+                  className={`hover:text-blue-400 transition-all duration-300 relative group animate-fade-in hover-scale ${activeSection === item.toLowerCase() ? 'text-blue-400' : ''}`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {item}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full story-link"></span>
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-blue-400 transition-all duration-300 ${activeSection === item.toLowerCase() ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                 </button>
               ))}
             </div>
@@ -166,39 +165,6 @@ const Index = () => {
               <SplineSceneBasic />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 relative">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent animate-fade-in">
-            About Me
-          </h2>
-          <Card className="bg-slate-800/50 backdrop-blur-lg border-slate-700 max-w-4xl mx-auto hover-scale animate-scale-in">
-            <CardContent className="p-8">
-              <p className="text-lg text-slate-300 leading-relaxed mb-8 animate-slide-up">
-                I'm an AI & ML Engineering student with hands-on experience in full stack and app development, 
-                skilled in Python, Flask, React, Next.js, Firebase, MongoDB, Gemini AI, and Docker. I've built 
-                real-world AI-powered solutions such as mock interview platforms, civic engagement tools, cloud 
-                estimators, and automation bots using n8n, with multiple national and international hackathon wins, 
-                strong leadership in tech communities, and a deep passion for creating impactful, intelligent, 
-                and user-focused applications.
-              </p>
-              <div className="flex space-x-4 animate-delayed-fade-in">
-                <a href="https://linkedin.com/in/aravind2107" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="border-slate-600 hover:border-blue-500 hover-scale">
-                    <Linkedin className="h-4 w-4" />
-                  </Button>
-                </a>
-                <a href="https://github.com/ARAVIND2017" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="border-slate-600 hover:border-blue-500 hover-scale">
-                    <Github className="h-4 w-4" />
-                  </Button>
-                </a>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </section>
 
