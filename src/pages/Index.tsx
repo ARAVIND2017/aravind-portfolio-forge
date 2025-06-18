@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ArrowDown, Star, Award, MapPin, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,14 +9,18 @@ import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks/use-toast';
 import SkillsSection from '@/components/SkillsSection';
 import { SplineSceneBasic } from '@/components/ui/demo';
+import emailjs from '@emailjs/browser';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
+    // Initialize EmailJS with your public key
+    emailjs.init('z4p5isoQOASeMMQy8');
   }, []);
 
   const projects = [
@@ -68,13 +73,40 @@ const Index = () => {
     setActiveSection(sectionId);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+    
+    try {
+      // Send email using EmailJS
+      await emailjs.send(
+        'service_6gf1otk', // Your Service ID
+        'template_jxny4fe', // Your Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Aravind', // You can customize this
+        }
+      );
+      
+      toast({
+        title: "Message Sent Successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+      
+      // Reset form
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      toast({
+        title: "Failed to Send Message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -308,6 +340,7 @@ const Index = () => {
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       className="bg-slate-700/50 border-slate-600 text-white placeholder-slate-400 hover-scale"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
@@ -318,6 +351,7 @@ const Index = () => {
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       className="bg-slate-700/50 border-slate-600 text-white placeholder-slate-400 hover-scale"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
@@ -327,10 +361,15 @@ const Index = () => {
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                       className="bg-slate-700/50 border-slate-600 text-white placeholder-slate-400 min-h-[120px] hover-scale"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white py-3 hover-scale animate-glow">
-                    Send Message
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white py-3 hover-scale animate-glow"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                     <Mail className="ml-2 h-4 w-4" />
                   </Button>
                 </form>
