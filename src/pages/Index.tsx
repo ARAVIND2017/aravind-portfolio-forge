@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ArrowDown, Star, Award, MapPin, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -20,14 +19,6 @@ const Index = () => {
   }, []);
 
   const projects = [
-    {
-      title: 'PuraConnect',
-      description: 'AI-powered civic engagement platform connecting citizens with government services',
-      tech: ['React', 'AI', 'Firebase'],
-      award: 'Washington Hackathon Winner',
-      github: '#',
-      demo: '#'
-    },
     {
       title: 'Mock Interview + LMS App',
       description: 'AI-powered job preparation platform with personalized learning management',
@@ -219,10 +210,6 @@ const Index = () => {
                     <p className="text-yellow-400 text-sm mb-4 font-medium animate-float">{project.award}</p>
                   )}
                   <div className="flex space-x-3">
-                    <Button size="sm" variant="outline" className="border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white hover-scale">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Live Demo
-                    </Button>
                     <Button size="sm" variant="outline" className="border-slate-600 hover:border-blue-500 hover-scale">
                       <Github className="h-4 w-4 mr-2" />
                       Code
