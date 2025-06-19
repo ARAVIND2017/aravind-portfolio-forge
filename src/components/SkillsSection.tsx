@@ -1,7 +1,6 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { useState } from 'react';
 
 const SkillsSection = () => {
@@ -35,15 +34,16 @@ const SkillsSection = () => {
         { name: 'Flask', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg', color: 'bg-green-500/20 text-green-300' },
         { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg', color: 'bg-orange-500/20 text-orange-300' },
         { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg', color: 'bg-green-500/20 text-green-300' },
-        { name: 'Prisma ORM', icon: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=80&h=80&fit=crop', color: 'bg-indigo-500/20 text-indigo-300' }
+        { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', color: 'bg-green-500/20 text-green-300' }
       ]
     },
     {
       category: 'AI/ML',
       color: 'from-purple-500 to-pink-500',
       skills: [
-        { name: 'Gemini AI', icon: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=80&h=80&fit=crop', color: 'bg-purple-500/20 text-purple-300' },
-        { name: 'scikit-learn', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg', color: 'bg-orange-500/20 text-orange-300' },
+        { name: 'TensorFlow', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg', color: 'bg-orange-500/20 text-orange-300' },
+        { name: 'PyTorch', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg', color: 'bg-red-500/20 text-red-300' },
+        { name: 'scikit-learn', icon: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg', color: 'bg-orange-500/20 text-orange-300' },
         { name: 'NumPy', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg', color: 'bg-blue-500/20 text-blue-300' }
       ]
     },
@@ -54,8 +54,8 @@ const SkillsSection = () => {
         { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg', color: 'bg-blue-500/20 text-blue-300' },
         { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', color: 'bg-gray-500/20 text-gray-300' },
         { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg', color: 'bg-blue-500/20 text-blue-300' },
-        { name: 'Android Studio', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg', color: 'bg-green-500/20 text-green-300' },
-        { name: 'n8n', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=80&h=80&fit=crop', color: 'bg-red-500/20 text-red-300' }
+        { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', color: 'bg-red-500/20 text-red-300' },
+        { name: 'Android Studio', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg', color: 'bg-green-500/20 text-green-300' }
       ]
     },
     {
@@ -64,19 +64,68 @@ const SkillsSection = () => {
       skills: [
         { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', color: 'bg-purple-500/20 text-purple-300' },
         { name: 'Canva', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg', color: 'bg-blue-500/20 text-blue-300' },
-        { name: 'StarUML', icon: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=80&h=80&fit=crop', color: 'bg-indigo-500/20 text-indigo-300' }
+        { name: 'Adobe XD', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg', color: 'bg-pink-500/20 text-pink-300' }
       ]
     }
   ];
 
+  // Flatten all skills for marquee
+  const allSkills = skillCategories.flatMap(category => category.skills);
+  
   const [activeCategory, setActiveCategory] = useState(0);
 
   return (
-    <section id="skills" className="py-20 bg-slate-900/50">
+    <section id="skills" className="py-20 bg-slate-900/50 dark:bg-slate-900/50 light:bg-slate-50/50">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+        <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
           Skills & Technologies
         </h2>
+
+        {/* Marquee Animation Section */}
+        <div className="mb-16 overflow-hidden">
+          <div className="flex animate-marquee space-x-8 py-8">
+            {/* First set of logos */}
+            {allSkills.map((skill, index) => (
+              <div
+                key={`first-${skill.name}-${index}`}
+                className="flex-shrink-0 flex flex-col items-center justify-center group cursor-pointer"
+              >
+                <div className="w-16 h-16 mb-2 flex items-center justify-center bg-slate-800/50 dark:bg-slate-800/50 light:bg-white border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300/50 rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-500/20">
+                  <img 
+                    src={skill.icon} 
+                    alt={`${skill.name} logo`}
+                    className="w-10 h-10 object-contain filter group-hover:brightness-110"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=40&h=40&fit=crop';
+                    }}
+                  />
+                </div>
+                <span className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 font-medium">{skill.name}</span>
+              </div>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {allSkills.map((skill, index) => (
+              <div
+                key={`second-${skill.name}-${index}`}
+                className="flex-shrink-0 flex flex-col items-center justify-center group cursor-pointer"
+              >
+                <div className="w-16 h-16 mb-2 flex items-center justify-center bg-slate-800/50 dark:bg-slate-800/50 light:bg-white border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300/50 rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-500/20">
+                  <img 
+                    src={skill.icon} 
+                    alt={`${skill.name} logo`}
+                    className="w-10 h-10 object-contain filter group-hover:brightness-110"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=40&h=40&fit=crop';
+                    }}
+                  />
+                </div>
+                <span className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 font-medium">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
         
         <div className="max-w-6xl mx-auto">
           {/* Category Navigation */}
@@ -88,7 +137,7 @@ const SkillsSection = () => {
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
                   activeCategory === index
                     ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                    : 'bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 border border-slate-600'
+                    : 'bg-slate-800/50 dark:bg-slate-800/50 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 hover:bg-slate-700/50 dark:hover:bg-slate-700/50 light:hover:bg-slate-100 border border-slate-600 dark:border-slate-600 light:border-slate-300'
                 }`}
               >
                 {category.category}
@@ -96,41 +145,33 @@ const SkillsSection = () => {
             ))}
           </div>
 
-          {/* Skills Carousel */}
-          <div className="relative">
-            <Carousel className="w-full" opts={{ align: "start", loop: true }}>
-              <CarouselContent className="-ml-2 md:-ml-4">
-                {skillCategories[activeCategory].skills.map((skill, index) => (
-                  <CarouselItem key={`${skill.name}-${index}`} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
-                    <Card className="bg-slate-800/50 backdrop-blur-lg border-slate-700 hover:border-blue-500/50 transition-all duration-300 transform hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 group cursor-pointer">
-                      <CardContent className="flex flex-col items-center justify-center p-6 h-32">
-                        <div className="w-12 h-12 mb-3 flex items-center justify-center transition-all duration-300 group-hover:scale-125 group-hover:rotate-12">
-                          <img 
-                            src={skill.icon} 
-                            alt={`${skill.name} logo`}
-                            className="w-10 h-10 object-contain filter group-hover:drop-shadow-lg group-hover:brightness-110"
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=80&h=80&fit=crop';
-                            }}
-                          />
-                        </div>
-                        <Badge variant="secondary" className={`${skill.color} text-xs font-medium transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}>
-                          {skill.name}
-                        </Badge>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="hidden md:flex -left-12 border-slate-600 bg-slate-800/50 hover:bg-slate-700 text-white hover:border-blue-500" />
-              <CarouselNext className="hidden md:flex -right-12 border-slate-600 bg-slate-800/50 hover:bg-slate-700 text-white hover:border-blue-500" />
-            </Carousel>
+          {/* Skills Grid for Selected Category */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-8">
+            {skillCategories[activeCategory].skills.map((skill, index) => (
+              <Card key={`${skill.name}-${index}`} className="bg-slate-800/50 dark:bg-slate-800/50 light:bg-white backdrop-blur-lg border-slate-700 dark:border-slate-700 light:border-slate-300 hover:border-blue-500/50 transition-all duration-300 transform hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 group cursor-pointer">
+                <CardContent className="flex flex-col items-center justify-center p-6 h-32">
+                  <div className="w-12 h-12 mb-3 flex items-center justify-center transition-all duration-300 group-hover:scale-125 group-hover:rotate-12">
+                    <img 
+                      src={skill.icon} 
+                      alt={`${skill.name} logo`}
+                      className="w-10 h-10 object-contain filter group-hover:drop-shadow-lg group-hover:brightness-110"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=40&h=40&fit=crop';
+                      }}
+                    />
+                  </div>
+                  <Badge variant="secondary" className={`${skill.color} text-xs font-medium transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}>
+                    {skill.name}
+                  </Badge>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
           {/* Category Description */}
-          <div className="text-center mt-8">
-            <p className="text-slate-400 max-w-2xl mx-auto">
+          <div className="text-center">
+            <p className="text-slate-400 dark:text-slate-400 light:text-slate-600 max-w-2xl mx-auto">
               {activeCategory === 0 && "Programming languages I use to build robust and scalable applications"}
               {activeCategory === 1 && "Frontend technologies for creating beautiful and interactive user interfaces"}
               {activeCategory === 2 && "Backend tools and databases for building powerful server-side applications"}
@@ -138,15 +179,6 @@ const SkillsSection = () => {
               {activeCategory === 4 && "Development tools that enhance productivity and code quality"}
               {activeCategory === 5 && "Design and modeling tools for creating stunning visual experiences"}
             </p>
-          </div>
-
-          {/* Mobile Swipe Indicator */}
-          <div className="flex justify-center mt-6 md:hidden">
-            <div className="flex items-center space-x-2 text-slate-400 text-sm">
-              <span>←</span>
-              <span>Swipe to explore</span>
-              <span>→</span>
-            </div>
           </div>
         </div>
       </div>
