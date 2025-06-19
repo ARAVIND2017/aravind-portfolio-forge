@@ -8,11 +8,10 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks/use-toast';
 import SkillsSection from '@/components/SkillsSection';
-import { SplineSceneBasic } from '@/components/ui/demo';
+import { SplineSceneBasic, NavBarDemo } from '@/components/ui/demo';
 import emailjs from '@emailjs/browser';
 
 const Index = () => {
-  const [activeSection, setActiveSection] = useState('home');
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -67,12 +66,6 @@ const Index = () => {
     'EZ Technology - Python Programming'
   ];
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
-    setActiveSection(sectionId);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -111,28 +104,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white overflow-x-hidden">
-      {/* Sticky Header */}
-      <header className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-700/50">
-        <nav className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-white">
-              B. Aravind
-            </div>
-            <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Skills', 'Projects', 'Achievements', 'Experience', 'Certifications', 'Contact'].map((item, index) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`hover:text-blue-400 transition-all duration-300 relative group ${activeSection === item.toLowerCase() ? 'text-blue-400' : ''}`}
-                >
-                  {item}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-blue-400 transition-all duration-300 ${activeSection === item.toLowerCase() ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-                </button>
-              ))}
-            </div>
-          </div>
-        </nav>
-      </header>
+      {/* New Tubelight Navbar */}
+      <NavBarDemo />
 
       {/* Hero Section with SplineSceneBasic */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">

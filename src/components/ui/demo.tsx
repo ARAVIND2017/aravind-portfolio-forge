@@ -3,8 +3,9 @@
 
 import { SplineScene } from "@/components/ui/splite";
 import { Card } from "@/components/ui/card";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Home, User, Briefcase, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { NavBar } from "@/components/ui/tubelight-navbar";
 
 export function SplineSceneBasic() {
   return <Card className="w-full h-auto min-h-[500px] bg-transparent relative overflow-hidden" id="about">
@@ -40,4 +41,20 @@ export function SplineSceneBasic() {
         </div>
       </div>
     </Card>;
+}
+
+export function NavBarDemo() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const navItems = [
+    { name: 'Home', url: '#home', icon: Home },
+    { name: 'About', url: '#about', icon: User },
+    { name: 'Projects', url: '#projects', icon: Briefcase },
+    { name: 'Contact', url: '#contact', icon: FileText }
+  ];
+
+  return <NavBar items={navItems} />;
 }
