@@ -1,8 +1,6 @@
-
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ArrowDown, Star, Award, MapPin, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -151,12 +149,12 @@ const Index = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card key={project.title} className="bg-slate-800/50 dark:bg-slate-800/50 light:bg-white/90 backdrop-blur-lg border-slate-700 dark:border-slate-700 light:border-slate-300 hover:border-blue-500/50 transition-all duration-300 transform hover-scale group shadow-lg light:shadow-xl">
-                <CardHeader>
+              <div key={project.title} className="bg-slate-800/30 dark:bg-slate-800/30 light:bg-white/60 backdrop-blur-lg border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300/50 hover:border-blue-500/50 transition-all duration-300 transform hover-scale group p-6 rounded-lg">
+                <div className="mb-4">
                   <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="text-white dark:text-white light:text-slate-900 group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-xl font-bold text-white dark:text-white light:text-slate-900 group-hover:text-blue-400 transition-colors">
                       {project.title}
-                    </CardTitle>
+                    </h3>
                     {project.award && (
                       <Badge className="bg-yellow-500/20 text-yellow-300 dark:text-yellow-300 light:text-yellow-700 light:bg-yellow-100 text-xs">
                         <Award className="h-3 w-3 mr-1" />
@@ -164,11 +162,11 @@ const Index = () => {
                       </Badge>
                     )}
                   </div>
-                  <CardDescription className="text-slate-300 dark:text-slate-300 light:text-slate-600">
+                  <p className="text-slate-300 dark:text-slate-300 light:text-slate-600">
                     {project.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
+                  </p>
+                </div>
+                <div className="mb-4">
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech) => (
                       <Badge key={tech} variant="outline" className="border-blue-500/30 text-blue-300 dark:text-blue-300 light:text-blue-600 light:border-blue-300 hover-scale">
@@ -185,8 +183,8 @@ const Index = () => {
                       Code
                     </Button>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -200,14 +198,12 @@ const Index = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {achievements.map((achievement, index) => (
-              <Card key={achievement.title} className="bg-slate-800/50 dark:bg-slate-800/50 light:bg-white/90 backdrop-blur-lg border-slate-700 dark:border-slate-700 light:border-slate-300 hover:border-yellow-500/50 transition-all duration-300 transform hover-scale text-center shadow-lg light:shadow-xl">
-                <CardContent className="p-6">
-                  <div className="text-4xl mb-4">{achievement.icon}</div>
-                  <h3 className="text-xl font-bold text-white dark:text-white light:text-slate-900 mb-2">{achievement.title}</h3>
-                  <p className="text-yellow-400 dark:text-yellow-400 light:text-yellow-600 font-medium mb-2">{achievement.award}</p>
-                  <p className="text-slate-400 dark:text-slate-400 light:text-slate-500">{achievement.year}</p>
-                </CardContent>
-              </Card>
+              <div key={achievement.title} className="bg-slate-800/30 dark:bg-slate-800/30 light:bg-white/60 backdrop-blur-lg border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300/50 hover:border-yellow-500/50 transition-all duration-300 transform hover-scale text-center p-6 rounded-lg">
+                <div className="text-4xl mb-4">{achievement.icon}</div>
+                <h3 className="text-xl font-bold text-white dark:text-white light:text-slate-900 mb-2">{achievement.title}</h3>
+                <p className="text-yellow-400 dark:text-yellow-400 light:text-yellow-600 font-medium mb-2">{achievement.award}</p>
+                <p className="text-slate-400 dark:text-slate-400 light:text-slate-500">{achievement.year}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -221,23 +217,19 @@ const Index = () => {
             <div>
               <h3 className="text-3xl font-bold mb-8 text-blue-400">Experience</h3>
               <div className="space-y-6">
-                <Card className="bg-slate-800/50 dark:bg-slate-800/50 light:bg-white/90 backdrop-blur-lg border-slate-700 dark:border-slate-700 light:border-slate-300 hover-scale shadow-lg light:shadow-xl">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="text-xl font-bold text-white dark:text-white light:text-slate-900">Technical Head</h4>
-                      <Badge className="bg-green-500/20 text-green-300 dark:text-green-300 light:text-green-700 light:bg-green-100">Current</Badge>
-                    </div>
-                    <p className="text-blue-400 mb-2">Kriya Tech Club, BITM</p>
-                    <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm mb-3">Led coding events, mentored juniors, organized workshops</p>
-                  </CardContent>
-                </Card>
-                <Card className="bg-slate-800/50 dark:bg-slate-800/50 light:bg-white/90 backdrop-blur-lg border-slate-700 dark:border-slate-700 light:border-slate-300 hover-scale shadow-lg light:shadow-xl">
-                  <CardContent className="p-6">
-                    <h4 className="text-xl font-bold text-white dark:text-white light:text-slate-900 mb-3">Project Diploma Engineer Trainee</h4>
-                    <p className="text-blue-400 mb-2">Triveni Turbine Ltd</p>
-                    <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm">Component alignment, technical troubleshooting, QA</p>
-                  </CardContent>
-                </Card>
+                <div className="bg-slate-800/30 dark:bg-slate-800/30 light:bg-white/60 backdrop-blur-lg border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300/50 hover-scale p-6 rounded-lg">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="text-xl font-bold text-white dark:text-white light:text-slate-900">Technical Head</h4>
+                    <Badge className="bg-green-500/20 text-green-300 dark:text-green-300 light:text-green-700 light:bg-green-100">Current</Badge>
+                  </div>
+                  <p className="text-blue-400 mb-2">Kriya Tech Club, BITM</p>
+                  <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm mb-3">Led coding events, mentored juniors, organized workshops</p>
+                </div>
+                <div className="bg-slate-800/30 dark:bg-slate-800/30 light:bg-white/60 backdrop-blur-lg border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300/50 hover-scale p-6 rounded-lg">
+                  <h4 className="text-xl font-bold text-white dark:text-white light:text-slate-900 mb-3">Project Diploma Engineer Trainee</h4>
+                  <p className="text-blue-400 mb-2">Triveni Turbine Ltd</p>
+                  <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm">Component alignment, technical troubleshooting, QA</p>
+                </div>
               </div>
             </div>
 
@@ -246,14 +238,12 @@ const Index = () => {
               <h3 className="text-3xl font-bold mb-8 text-blue-400">Certifications</h3>
               <div className="space-y-4">
                 {certifications.map((cert, index) => (
-                  <Card key={cert} className="bg-slate-800/50 dark:bg-slate-800/50 light:bg-white/90 backdrop-blur-lg border-slate-700 dark:border-slate-700 light:border-slate-300 hover:border-blue-500/50 transition-all duration-300 cursor-pointer hover-scale shadow-lg light:shadow-xl">
-                    <CardContent className="p-4">
-                      <div className="flex items-center justify-between">
-                        <p className="text-white dark:text-white light:text-slate-900">{cert}</p>
-                        <ExternalLink className="h-4 w-4 text-blue-400" />
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <div key={cert} className="bg-slate-800/30 dark:bg-slate-800/30 light:bg-white/60 backdrop-blur-lg border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300/50 hover:border-blue-500/50 transition-all duration-300 cursor-pointer hover-scale p-4 rounded-lg">
+                    <div className="flex items-center justify-between">
+                      <p className="text-white dark:text-white light:text-slate-900">{cert}</p>
+                      <ExternalLink className="h-4 w-4 text-blue-400" />
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
