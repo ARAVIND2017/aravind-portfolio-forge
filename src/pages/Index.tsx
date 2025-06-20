@@ -1,9 +1,11 @@
+
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, ArrowDown, Star, Award, MapPin, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent } from '@/components/ui/card';
 import { toast } from '@/hooks/use-toast';
 import SkillsSection from '@/components/SkillsSection';
 import { SplineSceneBasic, NavBarDemo } from '@/components/ui/demo';
