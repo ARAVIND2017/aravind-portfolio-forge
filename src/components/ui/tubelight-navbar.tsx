@@ -48,16 +48,18 @@ export function NavBar({ items, className }: NavBarProps) {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex items-center gap-2 bg-slate-900/60 border border-slate-700/30 backdrop-blur-2xl py-2 px-2 rounded-2xl shadow-2xl shadow-blue-500/5"
+        className="flex items-center gap-2 bg-slate-900/80 border border-white/10 backdrop-blur-2xl py-3 px-3 rounded-2xl shadow-2xl shadow-blue-500/10 hover:shadow-blue-500/20 transition-all duration-500"
       >
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name
 
           return (
-            <button
+            <motion.button
               key={item.name}
               onClick={() => handleClick(item)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className={cn(
                 "relative cursor-pointer text-sm font-medium px-6 py-3 rounded-xl transition-all duration-300 ease-out",
                 "text-slate-400 hover:text-blue-400",
@@ -70,14 +72,17 @@ export function NavBar({ items, className }: NavBarProps) {
                 <Icon size={20} strokeWidth={2} />
               </span>
               
-              {/* Hover effect */}
-              <div className="absolute inset-0 bg-slate-800/30 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Enhanced hover effect */}
+              <motion.div 
+                className="absolute inset-0 bg-slate-800/30 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                whileHover={{ scale: 1.02 }}
+              />
               
               {/* Active state with enhanced tubelight effect */}
               {isActive && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl"
+                  className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl border border-blue-400/30"
                   initial={false}
                   transition={{
                     type: "spring",
@@ -86,18 +91,28 @@ export function NavBar({ items, className }: NavBarProps) {
                   }}
                 >
                   {/* Enhanced tubelight glow */}
-                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full">
+                  <motion.div 
+                    className="absolute -top-1 left-1/2 -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                    animate={{ 
+                      boxShadow: [
+                        "0 0 10px rgba(59, 130, 246, 0.5)",
+                        "0 0 20px rgba(147, 51, 234, 0.7)",
+                        "0 0 10px rgba(59, 130, 246, 0.5)"
+                      ]
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
                     <div className="absolute w-16 h-8 bg-blue-400/10 rounded-full blur-xl -top-3 -left-2" />
                     <div className="absolute w-12 h-6 bg-purple-400/15 rounded-full blur-lg -top-2" />
                     <div className="absolute w-8 h-4 bg-blue-400/20 rounded-full blur-md -top-1 left-2" />
-                  </div>
+                  </motion.div>
                   
                   {/* Side glows */}
                   <div className="absolute top-1/2 -translate-y-1/2 -left-1 w-1 h-8 bg-gradient-to-b from-transparent via-blue-400/30 to-transparent rounded-full" />
                   <div className="absolute top-1/2 -translate-y-1/2 -right-1 w-1 h-8 bg-gradient-to-b from-transparent via-purple-400/30 to-transparent rounded-full" />
                 </motion.div>
               )}
-            </button>
+            </motion.button>
           )
         })}
       </motion.div>

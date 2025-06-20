@@ -161,7 +161,7 @@
 
   /* Enhanced glassmorphism effect */
   .glass-card {
-    @apply bg-slate-800/20 backdrop-blur-xl border border-slate-700/30 shadow-2xl;
+    @apply bg-slate-800/30 backdrop-blur-xl border border-white/10 shadow-2xl;
   }
 
   /* Smooth transitions for all interactive elements */
