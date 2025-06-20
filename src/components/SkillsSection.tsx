@@ -1,6 +1,4 @@
 
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { useState } from 'react';
 
 const SkillsSection = () => {
@@ -57,32 +55,21 @@ const SkillsSection = () => {
         { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', color: 'bg-red-500/20 text-red-300' },
         { name: 'Android Studio', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg', color: 'bg-green-500/20 text-green-300' }
       ]
-    },
-    {
-      category: 'Design/Modeling',
-      color: 'from-pink-500 to-rose-500',
-      skills: [
-        { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', color: 'bg-purple-500/20 text-purple-300' },
-        { name: 'Canva', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg', color: 'bg-blue-500/20 text-blue-300' },
-        { name: 'Adobe XD', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg', color: 'bg-pink-500/20 text-pink-300' }
-      ]
     }
   ];
 
-  // Flatten all skills for marquee
+  // Flatten all skills for marquee (excluding Design/Modeling category)
   const allSkills = skillCategories.flatMap(category => category.skills);
-  
-  const [activeCategory, setActiveCategory] = useState(0);
 
   return (
-    <section id="skills" className="py-20 bg-slate-900/50 dark:bg-slate-900/50 light:bg-slate-50/50">
+    <section id="skills" className="py-20 bg-slate-900/50">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
           Skills & Technologies
         </h2>
 
         {/* Marquee Animation Section */}
-        <div className="mb-16 overflow-hidden">
+        <div className="overflow-hidden">
           <div className="flex animate-marquee space-x-8 py-8">
             {/* First set of logos */}
             {allSkills.map((skill, index) => (
@@ -90,7 +77,7 @@ const SkillsSection = () => {
                 key={`first-${skill.name}-${index}`}
                 className="flex-shrink-0 flex flex-col items-center justify-center group cursor-pointer"
               >
-                <div className="w-16 h-16 mb-2 flex items-center justify-center bg-slate-800/50 dark:bg-slate-800/50 light:bg-white border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300/50 rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-500/20">
+                <div className="w-16 h-16 mb-2 flex items-center justify-center bg-slate-800/50 border border-slate-700/50 rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-500/20">
                   <img 
                     src={skill.icon} 
                     alt={`${skill.name} logo`}
@@ -101,7 +88,7 @@ const SkillsSection = () => {
                     }}
                   />
                 </div>
-                <span className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 font-medium">{skill.name}</span>
+                <span className="text-xs text-slate-400 font-medium">{skill.name}</span>
               </div>
             ))}
             {/* Duplicate set for seamless loop */}
@@ -110,7 +97,7 @@ const SkillsSection = () => {
                 key={`second-${skill.name}-${index}`}
                 className="flex-shrink-0 flex flex-col items-center justify-center group cursor-pointer"
               >
-                <div className="w-16 h-16 mb-2 flex items-center justify-center bg-slate-800/50 dark:bg-slate-800/50 light:bg-white border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300/50 rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-500/20">
+                <div className="w-16 h-16 mb-2 flex items-center justify-center bg-slate-800/50 border border-slate-700/50 rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-500/20">
                   <img 
                     src={skill.icon} 
                     alt={`${skill.name} logo`}
@@ -121,63 +108,10 @@ const SkillsSection = () => {
                     }}
                   />
                 </div>
-                <span className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 font-medium">{skill.name}</span>
+                <span className="text-xs text-slate-400 font-medium">{skill.name}</span>
               </div>
             ))}
           </div>
-        </div>
-        
-        {/* Category Navigation */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {skillCategories.map((category, index) => (
-            <button
-              key={category.category}
-              onClick={() => setActiveCategory(index)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
-                activeCategory === index
-                  ? `bg-gradient-to-r ${category.color} text-white shadow-lg`
-                  : 'bg-slate-800/50 dark:bg-slate-800/50 light:bg-white text-slate-300 dark:text-slate-300 light:text-slate-700 hover:bg-slate-700/50 dark:hover:bg-slate-700/50 light:hover:bg-slate-100 border border-slate-600 dark:border-slate-600 light:border-slate-300'
-              }`}
-            >
-              {category.category}
-            </button>
-          ))}
-        </div>
-
-        {/* Skills Grid for Selected Category */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-8">
-          {skillCategories[activeCategory].skills.map((skill, index) => (
-            <Card key={`${skill.name}-${index}`} className="bg-slate-800/50 dark:bg-slate-800/50 light:bg-white backdrop-blur-lg border-slate-700 dark:border-slate-700 light:border-slate-300 hover:border-blue-500/50 transition-all duration-300 transform hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 group cursor-pointer">
-              <CardContent className="flex flex-col items-center justify-center p-6 h-32">
-                <div className="w-12 h-12 mb-3 flex items-center justify-center transition-all duration-300 group-hover:scale-125 group-hover:rotate-12">
-                  <img 
-                    src={skill.icon} 
-                    alt={`${skill.name} logo`}
-                    className="w-10 h-10 object-contain filter group-hover:drop-shadow-lg group-hover:brightness-110"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=40&h=40&fit=crop';
-                    }}
-                  />
-                </div>
-                <Badge variant="secondary" className={`${skill.color} text-xs font-medium transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}>
-                  {skill.name}
-                </Badge>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Category Description */}
-        <div className="text-center">
-          <p className="text-slate-400 dark:text-slate-400 light:text-slate-600 max-w-2xl mx-auto">
-            {activeCategory === 0 && "Programming languages I use to build robust and scalable applications"}
-            {activeCategory === 1 && "Frontend technologies for creating beautiful and interactive user interfaces"}
-            {activeCategory === 2 && "Backend tools and databases for building powerful server-side applications"}
-            {activeCategory === 3 && "AI and Machine Learning tools for intelligent application development"}
-            {activeCategory === 4 && "Development tools that enhance productivity and code quality"}
-            {activeCategory === 5 && "Design and modeling tools for creating stunning visual experiences"}
-          </p>
         </div>
       </div>
     </section>

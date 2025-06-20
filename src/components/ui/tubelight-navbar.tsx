@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { ThemeToggle } from "@/components/ui/theme-toggle"
 
 interface NavItem {
   name: string
@@ -39,7 +38,7 @@ export function NavBar({ items, className }: NavBarProps) {
         className,
       )}
     >
-      <div className="flex items-center gap-3 bg-slate-900/80 dark:bg-slate-900/80 light:bg-white/90 border border-slate-700/50 dark:border-slate-700/50 light:border-slate-300/50 backdrop-blur-lg py-1 px-1 rounded-full shadow-lg light:shadow-xl">
+      <div className="flex items-center gap-3 bg-slate-900/80 border border-slate-700/50 backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name
@@ -51,8 +50,8 @@ export function NavBar({ items, className }: NavBarProps) {
               onClick={() => setActiveTab(item.name)}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
-                "text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-blue-400 dark:hover:text-blue-400 light:hover:text-blue-600",
-                isActive && "bg-slate-800/50 dark:bg-slate-800/50 light:bg-blue-50/80 text-blue-400 dark:text-blue-400 light:text-blue-600",
+                "text-slate-300 hover:text-blue-400",
+                isActive && "bg-slate-800/50 text-blue-400",
               )}
             >
               <span className="hidden md:inline">{item.name}</span>
@@ -80,11 +79,6 @@ export function NavBar({ items, className }: NavBarProps) {
             </a>
           )
         })}
-        
-        {/* Theme Toggle */}
-        <div className="ml-2">
-          <ThemeToggle />
-        </div>
       </div>
     </div>
   )
