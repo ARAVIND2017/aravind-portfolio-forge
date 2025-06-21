@@ -137,19 +137,19 @@ const ContactSection = () => {
                 </div>
                 <div className="flex justify-center space-x-8">
                   <motion.a 
-                    href="https://linkedin.com/in/aravind2107" 
+                    href="https://www.linkedin.com/in/aravind-your-profile" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    whileHover={{ scale: 1.3, rotate: 5 }}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
                     className="text-slate-300 hover:text-blue-400 transition-all duration-300"
                   >
                     <Linkedin className="h-8 w-8" />
                   </motion.a>
                   <motion.a 
-                    href="https://github.com/ARAVIND2017" 
+                    href="https://github.com/aravind-your-github" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    whileHover={{ scale: 1.3, rotate: -5 }}
+                    whileHover={{ scale: 1.1, rotate: -5 }}
                     className="text-slate-300 hover:text-blue-400 transition-all duration-300"
                   >
                     <Github className="h-8 w-8" />

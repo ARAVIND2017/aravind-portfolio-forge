@@ -6,9 +6,9 @@ const AchievementsSection = () => {
     { 
       title: 'Washington Hackathon', 
       award: 'Best Thematic Award', 
-      year: '2024', 
+      year: '2025', 
       icon: '🏆',
-      description: 'AI-based flood detection app'
+      description: 'Urban Intelligence: Smart and Sustainable Cities'
     },
     { 
       title: 'Ignitron 2K24', 
