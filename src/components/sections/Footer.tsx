@@ -22,7 +22,7 @@ const Footer = () => {
 
         {/* Main 3-Column Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {/* Left Column - Talk to Me */}
+          {/* Left Column - Talk to Us */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -31,7 +31,7 @@ const Footer = () => {
             className="text-center md:text-left"
           >
             <h3 className="text-xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Talk to Me
+              Talk To Us
             </h3>
             <div className="space-y-4">
               <motion.a
@@ -85,13 +85,16 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Location
             </h3>
-            <motion.div
+            <motion.a
+              href="https://www.google.com/maps/search/Ballari,+Karnataka"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05, x: -5 }}
               className="inline-flex items-center text-slate-300 hover:text-blue-400 transition-all duration-300"
             >
               <MapPin className="h-5 w-5 mr-3" />
               <span>Ballari, Karnataka</span>
-            </motion.div>
+            </motion.a>
           </motion.div>
         </div>
 
@@ -111,11 +114,10 @@ const Footer = () => {
               aria-label="LinkedIn"
               whileHover={{ 
                 scale: 1.2, 
-                y: -4,
-                background: "linear-gradient(45deg, #0077B5, #00A0DC)"
+                y: -4
               }}
               whileTap={{ scale: 0.9 }}
-              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
+              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white hover:bg-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
             >
               <Linkedin className="h-6 w-6" />
             </motion.a>
@@ -127,11 +129,10 @@ const Footer = () => {
               aria-label="GitHub"
               whileHover={{ 
                 scale: 1.2, 
-                y: -4,
-                background: "linear-gradient(45deg, #333, #555)"
+                y: -4
               }}
               whileTap={{ scale: 0.9 }}
-              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/20"
+              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white hover:bg-gray-700 transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/20"
             >
               <Github className="h-6 w-6" />
             </motion.a>
@@ -143,11 +144,10 @@ const Footer = () => {
               aria-label="Instagram"
               whileHover={{ 
                 scale: 1.2, 
-                y: -4,
-                background: "linear-gradient(45deg, #E4405F, #FCAF45, #833AB4)"
+                y: -4
               }}
               whileTap={{ scale: 0.9 }}
-              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20"
+              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white hover:bg-gradient-to-r hover:from-pink-500 hover:to-orange-500 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20"
             >
               <Instagram className="h-6 w-6" />
             </motion.a>

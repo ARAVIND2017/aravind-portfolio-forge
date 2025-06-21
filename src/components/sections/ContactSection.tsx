@@ -137,7 +137,7 @@ const ContactSection = () => {
                 </div>
                 <div className="flex justify-center space-x-8">
                   <motion.a 
-                    href="https://www.linkedin.com/in/aravind-your-profile" 
+                    href="https://www.linkedin.com/in/aravindb196" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     whileHover={{ scale: 1.1, rotate: 5 }}
@@ -146,7 +146,7 @@ const ContactSection = () => {
                     <Linkedin className="h-8 w-8" />
                   </motion.a>
                   <motion.a 
-                    href="https://github.com/aravind-your-github" 
+                    href="https://github.com/aravindb196" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     whileHover={{ scale: 1.1, rotate: -5 }}
