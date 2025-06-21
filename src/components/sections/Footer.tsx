@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Phone, Mail, MapPin, Linkedin, Github, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -8,7 +8,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-slate-950/80 py-12 border-t border-slate-800/50 relative mt-24">
+    <footer className="bg-slate-950/90 py-16 border-t border-slate-800/50 relative mt-24">
       <div className="container mx-auto px-6">
         {/* Back to Top Button */}
         <motion.button
@@ -20,8 +20,9 @@ const Footer = () => {
           <ArrowUp className="h-5 w-5" />
         </motion.button>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Left Info */}
+        {/* Main 3-Column Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          {/* Left Column - Talk to Me */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -29,111 +30,139 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-center md:text-left"
           >
-            <p className="text-lg text-slate-300">
-              Built by <span className="text-white font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">B. Aravind</span>
-            </p>
-            <p className="text-sm text-slate-500 mt-1">
-              © {new Date().getFullYear()} All Rights Reserved
-            </p>
+            <h3 className="text-xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Talk to Me
+            </h3>
+            <div className="space-y-4">
+              <motion.a
+                href="tel:+919591224982"
+                whileHover={{ scale: 1.05, x: 5 }}
+                className="flex items-center justify-center md:justify-start text-slate-300 hover:text-blue-400 transition-all duration-300"
+              >
+                <Phone className="h-5 w-5 mr-3" />
+                <span>+91 9591224982</span>
+              </motion.a>
+              <motion.a
+                href="tel:+919886172495"
+                whileHover={{ scale: 1.05, x: 5 }}
+                className="flex items-center justify-center md:justify-start text-slate-300 hover:text-blue-400 transition-all duration-300"
+              >
+                <Phone className="h-5 w-5 mr-3" />
+                <span>+91 9886172495</span>
+              </motion.a>
+            </div>
           </motion.div>
 
-          {/* Navigation */}
-          <motion.ul 
+          {/* Middle Column - E-Mail */}
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex flex-wrap gap-6 text-lg justify-center"
+            className="text-center"
           >
-            <li>
-              <motion.a
-                href="#home"
-                whileHover={{ scale: 1.05, color: '#60a5fa' }}
-                className="text-slate-400 hover:text-indigo-400 transition-all duration-300"
-              >
-                Home
-              </motion.a>
-            </li>
-            <li>
-              <motion.a
-                href="#projects"
-                whileHover={{ scale: 1.05, color: '#60a5fa' }}
-                className="text-slate-400 hover:text-indigo-400 transition-all duration-300"
-              >
-                Projects
-              </motion.a>
-            </li>
-            <li>
-              <motion.a
-                href="#achievements"
-                whileHover={{ scale: 1.05, color: '#60a5fa' }}
-                className="text-slate-400 hover:text-indigo-400 transition-all duration-300"
-              >
-                Achievements
-              </motion.a>
-            </li>
-            <li>
-              <motion.a
-                href="#certifications"
-                whileHover={{ scale: 1.05, color: '#60a5fa' }}
-                className="text-slate-400 hover:text-indigo-400 transition-all duration-300"
-              >
-                Certifications
-              </motion.a>
-            </li>
-            <li>
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.05, color: '#60a5fa' }}
-                className="text-slate-400 hover:text-indigo-400 transition-all duration-300"
-              >
-                Contact
-              </motion.a>
-            </li>
-          </motion.ul>
+            <h3 className="text-xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              E-Mail
+            </h3>
+            <motion.a
+              href="mailto:baravind196@gmail.com"
+              whileHover={{ scale: 1.05, y: -2 }}
+              className="inline-flex items-center text-slate-300 hover:text-blue-400 transition-all duration-300"
+            >
+              <Mail className="h-5 w-5 mr-3" />
+              <span>baravind196@gmail.com</span>
+            </motion.a>
+          </motion.div>
 
-          {/* Social Icons */}
+          {/* Right Column - Location */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="flex gap-6 items-center justify-center"
+            className="text-center md:text-right"
           >
-            <motion.a
-              href="https://github.com/ARAVIND2017"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              whileHover={{ scale: 1.2, y: -2 }}
-              className="text-slate-400 hover:text-white transition-all duration-300"
+            <h3 className="text-xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Location
+            </h3>
+            <motion.div
+              whileHover={{ scale: 1.05, x: -5 }}
+              className="inline-flex items-center text-slate-300 hover:text-blue-400 transition-all duration-300"
             >
-              <i className="fa-brands fa-github text-2xl"></i>
-            </motion.a>
-            <motion.a
-              href="https://linkedin.com/in/aravind2107"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              whileHover={{ scale: 1.2, y: -2 }}
-              className="text-slate-400 hover:text-white transition-all duration-300"
-            >
-              <i className="fa-brands fa-linkedin text-2xl"></i>
-            </motion.a>
+              <MapPin className="h-5 w-5 mr-3" />
+              <span>Ballari, Karnataka</span>
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Bottom section with additional info */}
+        {/* Social Media Section - Centered */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-8 pt-8 border-t border-slate-800/50"
+          className="text-center border-t border-slate-800/50 pt-8"
         >
-          <p className="text-slate-500 text-sm">
-            Built with 💻 React & Tailwind CSS • Designed with ❤️
-          </p>
+          <div className="flex justify-center space-x-8 mb-8">
+            <motion.a
+              href="https://www.linkedin.com/in/aravindb196"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              whileHover={{ 
+                scale: 1.2, 
+                y: -4,
+                background: "linear-gradient(45deg, #0077B5, #00A0DC)"
+              }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
+            >
+              <Linkedin className="h-6 w-6" />
+            </motion.a>
+            
+            <motion.a
+              href="https://github.com/aravindb196"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              whileHover={{ 
+                scale: 1.2, 
+                y: -4,
+                background: "linear-gradient(45deg, #333, #555)"
+              }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/20"
+            >
+              <Github className="h-6 w-6" />
+            </motion.a>
+            
+            <motion.a
+              href="https://www.instagram.com/vibe_vith_aravind_?igsh=MTAwbzE5eWlvYTZudA=="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              whileHover={{ 
+                scale: 1.2, 
+                y: -4,
+                background: "linear-gradient(45deg, #E4405F, #FCAF45, #833AB4)"
+              }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20"
+            >
+              <Instagram className="h-6 w-6" />
+            </motion.a>
+          </div>
+
+          {/* Copyright */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            viewport={{ once: true }}
+            className="text-slate-500 text-sm"
+          >
+            <p>© 2025 Aravind B. All rights reserved.</p>
+          </motion.div>
         </motion.div>
       </div>
     </footer>
