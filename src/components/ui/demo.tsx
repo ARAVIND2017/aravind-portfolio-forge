@@ -1,4 +1,3 @@
-
 'use client';
 
 import { SplineScene } from "@/components/ui/splite";
@@ -6,7 +5,6 @@ import { Card } from "@/components/ui/card";
 import { Github, Linkedin, Mail, Home, User, Briefcase, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NavBar } from "@/components/ui/tubelight-navbar";
-
 export function SplineSceneBasic() {
   return <Card className="w-full h-auto min-h-[500px] bg-transparent relative overflow-hidden" id="about">
       <div className="flex flex-col md:flex-row h-full">
@@ -15,7 +13,7 @@ export function SplineSceneBasic() {
           <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 mb-6">
             About Me
           </h1>
-          <p className="text-slate-300 leading-relaxed mb-8">I'm an AI &amp; ML engineering student with hands-on experience in developing intelligent, user-focused solutions across web, mobile, and AI platforms. I combine strong full stack and UI/UX skills with a self-motivated mindset and have built real-world projects recognized in national and international hackathons. I'm passionate about creating scalable tech that solves meaningful problems.</p>
+          <p className="text-slate-300 leading-relaxed mb-8 text-justify">I'm an AI &amp; ML engineering student with hands-on experience in developing intelligent, user-focused solutions across web, mobile, and AI platforms. I combine strong full stack and UI/UX skills with a self-motivated mindset and have built real-world projects recognized in national and international hackathons. I'm passionate about creating scalable tech that solves meaningful problems.</p>
           <div className="flex space-x-4">
             <a href="https://linkedin.com/in/aravind2107" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="icon" className="border-slate-600 hover:border-blue-500 hover-scale">
@@ -42,19 +40,29 @@ export function SplineSceneBasic() {
       </div>
     </Card>;
 }
-
 export function NavBarDemo() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    element?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
-  const navItems = [
-    { name: 'Home', url: '#home', icon: Home },
-    { name: 'About', url: '#about', icon: User },
-    { name: 'Projects', url: '#projects', icon: Briefcase },
-    { name: 'Contact', url: '#contact', icon: FileText }
-  ];
-
+  const navItems = [{
+    name: 'Home',
+    url: '#home',
+    icon: Home
+  }, {
+    name: 'About',
+    url: '#about',
+    icon: User
+  }, {
+    name: 'Projects',
+    url: '#projects',
+    icon: Briefcase
+  }, {
+    name: 'Contact',
+    url: '#contact',
+    icon: FileText
+  }];
   return <NavBar items={navItems} />;
 }
