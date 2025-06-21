@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Linkedin, Github, Mail, FileText } from 'lucide-react';
 import { SplineSceneBasic } from '@/components/ui/demo';
 
 const HeroSection = () => {
@@ -85,6 +86,72 @@ const HeroSection = () => {
           >
             Let's build the future together with innovative technology solutions
           </motion.p>
+
+          {/* Social Media Links */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.6 }}
+            className="flex justify-center space-x-8 mb-16"
+          >
+            <motion.a
+              href="https://www.linkedin.com/in/aravindb196"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              whileHover={{ 
+                scale: 1.2, 
+                y: -4
+              }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white hover:bg-blue-600 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
+            >
+              <Linkedin className="h-6 w-6" />
+            </motion.a>
+            
+            <motion.a
+              href="https://github.com/aravindb196"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              whileHover={{ 
+                scale: 1.2, 
+                y: -4
+              }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white hover:bg-gray-700 transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/20"
+            >
+              <Github className="h-6 w-6" />
+            </motion.a>
+            
+            <motion.a
+              href="mailto:baravind196@gmail.com"
+              aria-label="Email"
+              whileHover={{ 
+                scale: 1.2, 
+                y: -4
+              }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white hover:bg-green-600 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
+            >
+              <Mail className="h-6 w-6" />
+            </motion.a>
+
+            <motion.a
+              href="https://drive.google.com/file/d/1virCYQ66i-9erTnOy2OEm6MNp2OVhO1_/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Resume"
+              whileHover={{ 
+                scale: 1.2, 
+                y: -4
+              }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-slate-800/50 p-3 rounded-full text-slate-300 hover:text-white hover:bg-purple-600 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
+            >
+              <FileText className="h-6 w-6" />
+            </motion.a>
+          </motion.div>
         </motion.div>
         
         {/* 3D Interactive Scene */}
